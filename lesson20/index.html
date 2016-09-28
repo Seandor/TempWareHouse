@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="ShoppingListDirectiveApp">
+<head>
+	<meta charset="utf-8">
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+	<script src="angular.min.js"></script>
+	<script src="app.js"></script>
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" href="style.css">
+	<title>Directives with Isolate Scope and '&'</title>
+</head>
+<body>
+	<h1>Directives with Isolate Scope and '&'</h1>
+
+	<!-- LIST #1 - unlimited items -->
+	<div id="list1" ng-controller='ShoppingListController1 as list1'>
+		<input type="text" ng-model="list1.itemName" placeholder="item name">
+		<input type="text" ng-model="list1.itemQuantity" placeholder="quantity">
+		<button ng-click="list1.addItem();">Add Item</button>
+		<span>{{list1.lastRemoved}}</span>
+		<shopping-list items="list1.items" title="{{list1.title}}" on-remove="list1.removeItem(index)"></shopping-list>
+	</div>
+
+</body>
+</html>
