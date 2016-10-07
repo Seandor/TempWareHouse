@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="ShoppingList">
+<head>
+	<meta charset="utf-8">
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Directives with Events</title>
+</head>
+<body>
+	<h1>Directives with Events</h1>
+
+	<!-- LIST #1 - unlimited items -->
+	<div id="list1" ng-controller='ShoppingListController as list'>
+		<input type="text" ng-model="list.itemName" placeholder="item name">
+		<input type="text" ng-model="list.itemQuantity" placeholder="quantity">
+		<button ng-click="list.addItem();">Add Item</button>
+		<span>{{list.lastRemoved}}</span>
+		<shopping-list
+			items="list.items"
+			title="{{list.title}}"
+			on-remove="list.removeItem(index)"></shopping-list>
+
+	</div>
+
+	<loading-spinner></loading-spinner>
+
+	<!-- Libraries -->
+	<script src="lib/jquery-3.1.1.min.js"></script>
+	<script src="lib/angular.min.js"></script>
+
+	<!-- Modules -->
+	<script src="src/spinner/spinner.module.js"></script>
+	<script src="src/shoppinglist/shoppinglist.module.js"></script>
+
+	<!-- 'ShoppingList' Module artifacts -->
+	<script src="src/shoppinglist/shoppinglist.component.js"></script>
+	<script src="src/shoppinglist/shoppinglist.controller.js"></script>
+	<script src="src/shoppinglist/shoppinglist.factory.js"></script>
+	<script src="src/shoppinglist/Weightlossfilter.service.js"></script>
+
+	<!-- 'ShoppingList' Module artifacts -->
+	<script src="src/spinner/loadingspinner.component.js"></script>
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="ShoppingListEventsApp">
+<head>
+	<meta charset="utf-8">
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+	<script src="angular.min.js"></script>
+	<script src="app.js"></script>
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" href="style.css">
+	<title>Directives with Events</title>
+</head>
+<body>
+	<h1>Directives with Events</h1>
+
+	<!-- LIST #1 - unlimited items -->
+	<div id="list1" ng-controller='ShoppingListController as list'>
+		<input type="text" ng-model="list.itemName" placeholder="item name">
+		<input type="text" ng-model="list.itemQuantity" placeholder="quantity">
+		<button ng-click="list.addItem();">Add Item</button>
+		<span>{{list.lastRemoved}}</span>
+		<shopping-list
+			items="list.items"
+			title="{{list.title}}"
+			on-remove="list.removeItem(index)"></shopping-list>
+
+	</div>
+
+	<loading-spinner></loading-spinner>
+
+</body>
+</html>
